@@ -1,6 +1,6 @@
 # C2FPL
 
-# A Coarse-to-Fine Pseudo-Labeling (C2FPL) Framework for Unsupervised Video Anomaly Detection (WACV 2024)
+# A Coarse-to-Fine Pseudo-Labeling (C2FPL) Framework for Unsupervised Video Anomaly Detection (WACV 2024 )
 
 
 
