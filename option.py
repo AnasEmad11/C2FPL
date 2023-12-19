@@ -1,6 +1,6 @@
 import argparse
 
-parser = argparse.ArgumentParser(description='RFS_AD')
+parser = argparse.ArgumentParser(description='C2FPL')
 parser.add_argument('--feat-extractor', default='i3d', choices=['i3d', 'c3d'])
 parser.add_argument('--feature-size', type=int, default=2048, help='size of feature (default: 2048)')
 
