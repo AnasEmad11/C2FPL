@@ -1,34 +1,34 @@
 import argparse
 
-parser = argparse.ArgumentParser(description='RFS_AD')
+parser = argparse.ArgumentParser(description='C2FPL')
 parser.add_argument('--feat-extractor', default='i3d', choices=['i3d', 'c3d'])
 parser.add_argument('--feature-size', type=int, default=2048, help='size of feature (default: 2048)')
-parser.add_argument('--modality', default='RGB', help='the type of the input, RGB,AUDIO, or MIX')
+
 parser.add_argument('--rgb-list', default='./list/ucf-c3d.list', help='list of rgb features ')
 parser.add_argument('--test-rgb-list', default='./list/ucf-c3d-test.list', help='list of test rgb features ')
-parser.add_argument('--gt', default='list/gt-ucf_DeepMIL.npy', help='file of ground truth ')
-parser.add_argument('--gpus', default=4, type=int, choices=[0,1,2,3,4,5,6,7], help='gpus')
+parser.add_argument('--gt', default='list/gt-ucf_RTFM.npy', help='file of ground truth ')
+
 parser.add_argument('--lr', type=float, default=0.01, help='learning rate (default: 0.0001)')
 
 parser.add_argument('--batch-size', type=int, default=128, help='number of instances in a batch of data (default: 16)')
 parser.add_argument('--workers', default=0, help='number of workers in dataloader')
-parser.add_argument('--model-name', default='deepmil', help='name to save model')
-parser.add_argument('--pretrained-ckpt', default=None, help='ckpt for pretrained model')
+parser.add_argument('--model-name', default='C2FPL', help='name to save model')
+
 parser.add_argument('--num-classes', type=int, default=1, help='number of class')
 parser.add_argument('--datasetname', default='UCF', help='dataset to train on (default: )')
-parser.add_argument('--plot-freq', type=int, default=10, help='frequency of plotting (default: 10)')
+
 parser.add_argument('--max-epoch', type=int, default=30, help='maximum iteration to train (default: 100)')
-parser.add_argument('--sample-features', type=int, default=32, help='Number of segments of each video')
+
 parser.add_argument('--optimizer', default='SGD', help='Number of segments of each video')
 parser.add_argument('--lossfn', default='BCE', help='Number of segments of each video')
 parser.add_argument('--stepsize',type=int,  default=5, help='lr_scheduler stepsize')
-parser.add_argument('--pseudo',type=str,  default='Pseudo_labels/pseudo_abnormal_normal_windowsize_0.09_eps_0.471_crop.npy', help='pseudo labels')
-parser.add_argument('--create',type=str,  default='False', help='Create Pseudo labels')
-parser.add_argument('--eps',type=float,  default=0.4, help='lr_scheduler stepsize')
+parser.add_argument('--pseudo',type=str,  default='Unsup_labels/UCF_unsup_labels_original_V2.npy', help='pseudo labels')
+
+
 parser.add_argument('--windowsize',type=float,  default=0.09, help='lr_scheduler stepsize')
 parser.add_argument('--modelversion',type=str,  default='Model_V2', help='Model version')
 parser.add_argument('--eps2',type=float,  default=0.4, help='lr_scheduler stepsize')
 parser.add_argument('--outer-epochs',type=int,  default=1, help='lr_scheduler stepsize')
-parser.add_argument('--pseudofile',type=str,  default='Pseudo_labelV1', help='ground truth file')
-parser.add_argument('--conall',type=str,  default='conallV1', help='ground truth file')
+parser.add_argument('--pseudofile',type=str,  default='UCF_unsup_labels_original_V2', help='ground truth file')
+parser.add_argument('--conall',type=str,  default='concat_UCF', help='ground truth file')
 
